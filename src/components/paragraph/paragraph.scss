@@ -1,0 +1,41 @@
+.paragraph {
+  $self: &;
+
+  &_title {
+    font-family: "Ubuntu-Medium";
+    font-size: 28px;
+    line-height: 32px;
+    color: #0b0a0a;
+    margin-bottom: 4px;
+  }
+
+  &_subtitle,
+  &_input-label {
+    font-size: 14px;
+    line-height: 16px;
+    color: #585050;
+    margin-bottom: 32px;
+  }
+
+  &_input-label {
+    width: 105px;
+    white-space: nowrap;
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  &_select-item {
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #0b0a0a;
+  }
+
+  &_small {
+    font-size: 11px;
+    line-height: 13px;
+    color: #887c7c;
+    margin: 4px 0 32px 125px;
+  }
+}

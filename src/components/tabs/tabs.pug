@@ -1,0 +1,14 @@
+-BEMPUG.modifier = '_';
+include ../paragraph/paragraph
+
+mixin tabs(bem, data)
+  +b('tabs', bem)(data-tabs-swiper=(data.swiper === "false" ? "" : "true"))
+    +e('wrapper', {})
+      +e(`${data.steps? 'top' : 'container'}`)
+        if data.title
+          +paragraph({m: "card-title"}) !{data.title}
+        for tab, index in data.list
+          +e('tab', {})(id=`tab-${data.name}-${index + 1}` class=`${index === 0 ? 'js-active' : ''}`  data-tabs-tab-active=(index === data.activeTabsNumber ))&attributes(attributes)
+            +paragraph({e: '&', m: 'tabs-paragraph'}) !{tab}
+              | <span class='tabs__arrow'></span> 
+

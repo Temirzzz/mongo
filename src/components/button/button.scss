@@ -1,0 +1,54 @@
+.button {
+  $self: &;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    border: none;
+    font-family: "Ubuntu-Medium";
+    width: 115px;
+    height: 32px;
+    background: #f8f8f8;
+    border-radius: 3px;
+    color: #205eb0;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #f8f8f8;
+    box-shadow: inset 0px 0px 0px 100px rgba(0, 0, 0, 0.2);
+    color: #205eb0;
+  }
+
+  button:active {
+    background: #f8f8f8;
+    border: 1px solid #2a75db;
+    color: #205eb0;
+  }
+
+  &_default {
+    #{$self}__self-button {
+      width: 60px;
+      height: 32px;
+    }
+  }
+
+  &_active {
+    #{$self}__self-button {
+      font-family: "Ubuntu-Medium";
+      background: #2a75db;
+      border-radius: 3px;
+      color: #f8f8f8;
+    }
+  }
+
+  &_active:hover {
+    #{$self}__self-button {
+      background: #2a75db;
+      box-shadow: inset 0px 0px 0px 100px rgba(0, 0, 0, 0.2);
+      color: #f8f8f8;
+    }
+  }
+}

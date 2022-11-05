@@ -1,0 +1,14 @@
+mixin input(bem, data)
+    +b('input', bem, 'div')(class="js-input")&attributes(attributes)
+        if data.title
+            +e('title', {t: 'div'}) !{data.title}
+        +e('wrapper', {t: 'div'})
+            +e('label')(class="js-input-label") !{data.label}
+            +e('field', {t: 'input'})(
+                type=data.field.type ? data.field.type : 'text'
+                class=data.field.class
+                name=data.field.name
+                required=data.field.required
+                autocomplete=data.field.autocomplete
+                placeholder = data.field.placeholder ? data.field.placeholder : ''
+            )&attributes(inputAttributes)

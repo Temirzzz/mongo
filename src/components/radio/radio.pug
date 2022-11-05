@@ -1,0 +1,17 @@
+-BEMPUG.modifier = '_';
+
+mixin radio(bem, data)
+  //- если radioPos === false, элемент будет слева
+  //- если radioPos === true, элемент будет справа
+  -
+    let radioPos = data && data.radioPos ? 'right' : 'left'
+
+  +b('radio', bem)
+    +e('label', {t: 'label'})
+      +e('input', {t: 'input'})(type="radio" hidden name=data.name value=data.value )&attributes(attributes)
+      +e('wrapper')
+        if radioPos === 'left'
+          +e('box')
+        +e('placeholder', {t: 'span'}) !{data.label}
+        if radioPos === 'right'
+          +e('box')

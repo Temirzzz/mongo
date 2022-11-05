@@ -1,0 +1,13 @@
+.tabs-block {
+  display: none;
+
+  &.js-active {
+    display: block;
+  }
+  &__disclaimer-wrapper {
+    display: flex;
+  }
+  &__block-for-overflow {
+    width: 50%;
+  }
+}

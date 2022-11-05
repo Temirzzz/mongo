@@ -1,0 +1,4 @@
+mixin image(bem, data)
+  +b('image', bem)&attributes(attributes)
+    +e('img-wrapper')
+      +e('item', {t: 'img' })( src=data.src)

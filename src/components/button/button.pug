@@ -1,0 +1,14 @@
+mixin button(bem, data)
+  - let tag = data.tag ? data.tag : ''
+    +b('button', bem, 'div')&attributes(attributes)
+      if tag === 'a'
+        +e('link', {t: 'a'})(href=data.href) !{data.text}
+          if data.icon
+            svg(class="button__icon")
+              use(xlink:href=`#${data.icon}`)
+      else
+        +e('self-button', {t: 'button'})(type=data.type ? data.type : 'submit')
+          if data.icon
+            svg(class="button__icon")
+              use(xlink:href=`#${data.icon}`)
+          | !{data.text}

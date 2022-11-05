@@ -1,0 +1,29 @@
+-BEMPUG.modifier = '_';
+
+include ../paragraph/paragraph
+include ../image/image
+
+mixin select(bem, data)
+  - var value = 'value'
+  - var noLabel = true
+  -
+    if (attributes && attributes['data-value-key']) value = attributes['data-value-key']
+    if (attributes && attributes['data-options']) options = attributes['data-options']
+    if (bem && bem.m && bem.m.includes('with-label')) noLabel = false
+  +b('select', bem)
+    +e('container')
+        +e('input', {t: 'input'})(hidden id=data.id?`select-${data.id}`:undefined)&attributes(attributes)
+        +e('label', {t: 'label'})(for=data.id?`select-${data.id}`:undefined) !{data.title}
+    +e('wrapper')
+      +e('trigger', {})
+        +paragraph({e: '&:placeholder', m: 'select-item'}) !{data.placeholder}
+        include ../../images/arrow.svg
+      +e('option-list')
+        for option, index in data.options
+          +e('option')(data-value=option[value]
+          data-filter-value=option.filterValue ? option.filterValue : false
+          style=`${option.display ? 'display:'+option.display : ''}`)
+            +e({e: '&:text', m: 'select-item.in-select'}, {t: 'a'})(href=option.href) !{typeof option === 'object' ? option.name : option}
+  
+
+  

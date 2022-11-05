@@ -1,0 +1,15 @@
+@mixin webFont($family, $file, $weight: normal, $style: normal, $path: "../fonts/") {
+  @font-face {
+    font-family: $family;
+    src: url($path + $file + ".eot");
+    src: url($path + $file + ".eot?#iefix") format("embedded-opentype"),
+      url($path + $file + ".woff") format("woff"), url($path + $file + ".ttf") format("truetype");
+    font-weight: $weight;
+    font-style: $style;
+    font-stretch: normal;
+  }
+}
+
+@include webFont("Ubuntu-Regular", "Ubuntu-Regular", 400);
+@include webFont("Ubuntu-Medium", "Ubuntu-Medium", 500);
+@include webFont("Ubuntu-Bold", "Ubuntu-Bold", 700);

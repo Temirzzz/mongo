@@ -1,0 +1,8 @@
+mixin footer(data, bem)
+  +b('footer', {t: 'footer'})
+    +e('background')
+    +e('info')
+      +e('terms', {t: 'p'}) 2020-2022 
+      +e('link', {t: 'a'})(href="#") Terms of Service
+      +e('terms', {t: 'p'}) and
+      +e('link', {t: 'a'})(href="#") Conditions

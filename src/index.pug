@@ -1,0 +1,128 @@
+include ../node_modules/bempug/index
+- BEMPUG.modifier = '_';
+
+//- blocks imports
+include ./blocks/head/head
+include ./blocks/section/section
+include ./blocks/footer/footer
+
+//- components imports
+include ./components/paragraph/paragraph
+include ./components/button/button
+include ./components/input/input
+include ./components/select/select
+include ./components/radio/radio
+
+doctype html
+html
+  +head({title: "Mongo Digital Lab"})
+  body.main
+  +section('conteiner.theme-light')
+    +paragraph('title') Preferences
+    +paragraph('subtitle') On this page you can configure the main system parameters available for customization
+    +e('input-block', {})
+      +input({m: 'mb-24'}, {
+        label: 'Company Title',
+        field: {
+          required: false,
+          name: 'text',
+          class: 'form-name js-input-field input-for-storage',
+          placeholder: 'Star and Moon'
+        }
+      })
+      +select({m: 'with-label.mb-24', e: '&:select'}, {
+        title: 'First Day',placeholder: 'Sunday', attr: 'week-title', options: [{
+          id: "1", name: "Sunday", href: '#'
+        }, {
+          id: "2", name: "Monday", href: '#'
+        }, {
+          id: "3", name: "Tuesday", href: '#'
+        }, {
+          id: "4", name: "Wednesday", href: '#'
+        }, {
+          id: "5", name: "Thursday", href: '#'
+        }, {
+          id: "6", name: "Friday", href: '#'
+        }, {
+          id: "7", name: "Saturday", href: '#'
+        }]
+      })(
+        data-value-key="name"
+        name="week"
+      )(class='input-for-storage')
+      +select({m: 'with-label.mb-24', e: '&:select'}, {
+        title: 'Container Width', placeholder:'Fixed', attr: 'position-title', options: [{
+          id: "1", name: "Fixed", href: '#'
+        }, {
+          id: "2", name: "abslolute", href: '#'
+        }, {
+          id: "3", name: "relative", href: '#'
+        }]
+      })(
+        data-value-key="name"
+        name="position"
+      )(class='input-for-storage')
+      +select({m: 'with-label.mb-24', e: '&:select'}, {
+        title: 'Homepage', placeholder:'Starred Projects', attr: 'Homepage-title', options: [{
+          id: "1", name: "Starred Projects", href: '#'
+        }, {
+          id: "2", name: "End Projects", href: '#'
+        }]
+      })(
+        data-value-key="name"
+        name="Homepage"
+      )(class='input-for-storage')
+      +input({m: 'mb-24'}, {
+        label: 'Indent Size',
+        field: {
+          required: false,
+          name: 'indent-size',
+          class: 'form-name js-input-field input-for-storage',
+          placeholder: 'Default'
+        }
+      })
+      +section('input-container')
+        +paragraph('input-label') Personal Code
+        +input({m: 'inline'}, {
+          label: '',
+          field: {
+            required: false,
+            name: 'code1',
+            class: 'form-name js-input-field input-for-storage',
+            placeholder: ''
+          }
+        })
+        span.input__devider -
+        +input({m: 'inline'}, {
+          label: '',
+          field: {
+            required: false,
+            name: 'code2',
+            class: 'form-name js-input-field input-for-storage',
+            placeholder: ''
+          }
+        })
+        span.input__devider -
+        +input({m: 'inline'}, {
+          label: '',
+          field: {
+            required: false,
+            name: 'code3',
+            class: 'form-name js-input-field input-for-storage',
+            placeholder: ''
+          }
+        })
+      +paragraph('small') 12 digits
+      +section('radio.mb-35')
+        +paragraph('input-label') Theme
+        +section('radio-container')
+          +radio({}, {
+            label: 'Light'
+          })(name="theme" value="1" checked)
+          +radio({}, {
+            label: 'Dark'
+          })(name="theme" value="2" )
+      +section('button-block')
+        +button({m: "active"}, {teg: '', text: 'Apply and Save'})
+        +button({m:"default"}, {teg: '', text: 'Cancel '})
+    +footer()
